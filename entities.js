@@ -168,6 +168,16 @@ var EnemyEntity = me.ObjectEntity.extend({
 
         // check and update movement
         this.updateMovement();
+        
+       	// when enemy collides with wall, it starts walking in another direction
+	if (this.vel.x == 0)
+	{
+	    if (this.dir === 0) {
+                this.dir = 1;
+            } else {
+                this.dir = 0;
+            }
+	}
 
         // update animation if necessary
         if (this.vel.x !== 0 || this.vel.y !== 0) {
